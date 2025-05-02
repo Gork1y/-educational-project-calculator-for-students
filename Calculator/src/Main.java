@@ -7,5 +7,6 @@ public class Main {
 
     private static void calculateValue(String value) {
         System.out.println("посчитали:" + value);
+        System.out.println("тратата");
     }
 }
