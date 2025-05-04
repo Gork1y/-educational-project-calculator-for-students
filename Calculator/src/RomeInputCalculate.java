@@ -9,7 +9,7 @@
 public class RomeInputCalculate {
 
 
-    public static String SchitaemRimskieCifri(String input) throws IlligalInputDataException, ChtoToNeTakException {
+    public  String SchitaemRimskieCifri(String input) throws IlligalInputDataException, ChtoToNeTakException {
         String MassivRimscihCifor[] = {
                 " ", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
                 "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
@@ -50,15 +50,7 @@ public class RomeInputCalculate {
             throw new IlligalInputDataException("Число должно быть в диапазоне от 0 до 10, и содержать 2 римских/арабских числа!");
         }
 
-        if (operator1.contains("+")) {
-            operator = '+';
-        } else if (operator1.contains("-")) {
-            operator = '-';
-        } else if (operator1.contains("*")) {
-            operator = '*';
-        } else if (operator1.contains("/")) {
-            operator = '/';
-        }
+        operator = getOperator(operator1, operator);
 
         switch (operator) {
             case '+' -> result = FirstValue + SecondValue;
@@ -72,5 +64,18 @@ public class RomeInputCalculate {
         }
 
         return MassivRimscihCifor[result];
+    }
+
+    private static char getOperator(String operator1, char operator) {
+        if (operator1.contains("+")) {
+            operator = '+';
+        } else if (operator1.contains("-")) {
+            operator = '-';
+        } else if (operator1.contains("*")) {
+            operator = '*';
+        } else if (operator1.contains("/")) {
+            operator = '/';
+        }
+        return operator;
     }
 }
